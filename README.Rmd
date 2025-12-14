@@ -31,19 +31,56 @@ devtools::install_github("marloes6/ukrainianstarterpack")
 
 ## Functions
 
-is_ukrainian() determines if your text is written in Ukrainian or not.
+All functions in ukrainianstarterpack are based on the stringr package. Input text in the functions must be between " ", and may contain spaces. The functions are sensitive for uppercase/lowercase letters. The different functions in ukrainianstarterpack are explained in more detail below.
 
-cyr_lang_detect() determines in which Cyrillic language your text is written.
+### is_ukrainian()
 
-ukr_eng_transliterate() transliterates a text from Ukrainian Cyrillic to English Latin script.
+is_ukrainian() determines if your text is written in Ukrainian or not. Input should be in Ukrainian, Belarusian, Serbian, Macedonian, Mongolian, Bulgarian or Russian Cyrillic script and be between " ".
 
-eng_ukr_transliterate() transliterates a text from English Latin to Ukrainian Cyrillic script.
-
-Input text in the functions must be between " ", and may contain spaces. The functions are based on the stringr package.
-
-```{r example}
+```{r is_ukrainian_example}
 library(ukrainianstarterpack)
+
 is_ukrainian("Лише раз на сто років Небо народжує двох людей з однією душею І відпускає їх у чистий, вільний політ Нам пощастило Я люблю тебе")
+
+is_ukrainian("Мы живем все вместе с собакой и кошкой в большом доме в деревне.")
+
+is_ukrainian("так")
+```
+
+### cyr_lang_detect()
+
+cyr_lang_detect() determines in which Cyrillic language your text is written. Input should be in Ukrainian, Belarusian, Serbian, Macedonian, Mongolian, Bulgarian or Russian Cyrillic script and be between " ".
+
+```{r cyr_lang_detect_example}
+library(ukrainianstarterpack)
+
+cyr_lang_detect("Лише раз на сто років Небо народжує двох людей з однією душею І відпускає їх у чистий, вільний політ Нам пощастило Я люблю тебе")
+
+cyr_lang_detect("Мы живем все вместе с собакой и кошкой в большом доме в деревне.")
+
+cyr_lang_detect("так")
+```
+
+### ukr_eng_transliterate()
+
+ukr_eng_transliterate() transliterates a text from Ukrainian Cyrillic to English Latin script. Input should be in Ukrainian Cyrillic script and be between " ".
+
+```{r ukr_eng_transliterate_example}
+library(ukrainianstarterpack)
+
+ukr_eng_transliterate("Лише раз на сто років Небо народжує двох людей з однією душею І відпускає їх у чистий, вільний політ Нам пощастило Я люблю тебе")
+```
+
+### eng_ukr_transliterate()
+
+eng_ukr_transliterate() transliterates a text from English Latin to Ukrainian Cyrillic script. Input should be in English Latin script and be between " ".
+
+```{r eng_ukr_transliterate_example}
+library(ukrainianstarterpack)
+
+eng_ukr_transliterate("Sail and seek The starbound quay Calling you, calling me To be a part of your story")
+
+eng_ukr_transliterate("shawl")
 ```
 
 ## Please be aware of the following:

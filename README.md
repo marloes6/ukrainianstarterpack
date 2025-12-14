@@ -24,24 +24,77 @@ devtools::install_github("marloes6/ukrainianstarterpack")
 
 ## Functions
 
-is_ukrainian() determines if your text is written in Ukrainian or not.
-
-cyr_lang_detect() determines in which Cyrillic language your text is
-written.
-
-ukr_eng_transliterate() transliterates a text from Ukrainian Cyrillic to
-English Latin script.
-
-eng_ukr_transliterate() transliterates a text from English Latin to
-Ukrainian Cyrillic script.
-
+All functions in ukrainianstarterpack are based on the stringr package.
 Input text in the functions must be between ” “, and may contain spaces.
-The functions are based on the stringr package.
+The functions are sensitive for uppercase/lowercase letters. The
+different functions in ukrainianstarterpack are explained in more detail
+below.
+
+### is_ukrainian()
+
+is_ukrainian() determines if your text is written in Ukrainian or not.
+Input should be in Ukrainian, Belarusian, Serbian, Macedonian,
+Mongolian, Bulgarian or Russian Cyrillic script and be between ” “.
 
 ``` r
 library(ukrainianstarterpack)
+
 is_ukrainian("Лише раз на сто років Небо народжує двох людей з однією душею І відпускає їх у чистий, вільний політ Нам пощастило Я люблю тебе")
 #> [1] "This text is Ukrainian."
+
+is_ukrainian("Мы живем все вместе с собакой и кошкой в большом доме в деревне.")
+#> [1] "This text is not Ukrainian."
+
+is_ukrainian("так")
+#> [1] "This text may or may not be Ukrainian. Please provide more input if possible."
+```
+
+### cyr_lang_detect()
+
+cyr_lang_detect() determines in which Cyrillic language your text is
+written. Input should be in Ukrainian, Belarusian, Serbian, Macedonian,
+Mongolian, Bulgarian or Russian Cyrillic script and be between ” “.
+
+``` r
+library(ukrainianstarterpack)
+
+cyr_lang_detect("Лише раз на сто років Небо народжує двох людей з однією душею І відпускає їх у чистий, вільний політ Нам пощастило Я люблю тебе")
+#> [1] "This text is Ukrainian."
+
+cyr_lang_detect("Мы живем все вместе с собакой и кошкой в большом доме в деревне.")
+#> [1] "This text is likely Russian."
+
+cyr_lang_detect("так")
+#> [1] "The language of this text couldn't be determined. If possible, please provide a longer input for a more accurate result."
+```
+
+### ukr_eng_transliterate()
+
+ukr_eng_transliterate() transliterates a text from Ukrainian Cyrillic to
+English Latin script. Input should be in Ukrainian Cyrillic script and
+be between ” “.
+
+``` r
+library(ukrainianstarterpack)
+
+ukr_eng_transliterate("Лише раз на сто років Небо народжує двох людей з однією душею І відпускає їх у чистий, вільний політ Нам пощастило Я люблю тебе")
+#> [1] "Lyshe raz na sto rokiv Nebo narodzhuye dvokh lyudej z odniyeyu dusheyu I vidpuskaye yikh u chystyj, vil'nyj polit Nam poshchastylo Ya lyublyu tebe"
+```
+
+### eng_ukr_transliterate()
+
+eng_ukr_transliterate() transliterates a text from English Latin to
+Ukrainian Cyrillic script. Input should be in English Latin script and
+be between ” “.
+
+``` r
+library(ukrainianstarterpack)
+
+eng_ukr_transliterate("Sail and seek The starbound quay Calling you, calling me To be a part of your story")
+#> [1] "Саіл анд сеек Тге старбоунд куаи Каллінґ иоу, каллінґ ме То бе а парт оф иоур стори"
+
+eng_ukr_transliterate("shawl")
+#> [1] "шавл"
 ```
 
 ## Please be aware of the following:
