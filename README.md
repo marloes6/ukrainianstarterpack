@@ -19,7 +19,7 @@ You can install the development version of ukrainianstarterpack from
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("marloes6/ukrainianstarterpack")
+devtools::install_github("marloes6/ukrainianstarterpack", build_vignettes=TRUE)
 ```
 
 ## Functions
