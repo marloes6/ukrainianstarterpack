@@ -1,3 +1,13 @@
+#' Transliterate a text from Ukrainian Cyrillic to English Latin script
+#'
+#' @param text A string of Ukrainian Cyrillic characters, between " ", may contain spaces.
+#'
+#' @returns A string of characters transliterated to English Latin script.
+#' @export
+#'
+#' @examples
+#' ukr_eng_transliterate("Лише раз на сто років Небо народжує двох людей з однією душею
+#' І відпускає їх у чистий, вільний політ Нам пощастило Я люблю тебе")
 ukr_eng_transliterate <- function(text) {
   stringr::str_replace_all(text, c("А"="A", "а"="a", "Б"="B", "б"="b", "В"="V", "в"="v",
                                    "Г"="H", "г"="h", "Ґ"="G", "ґ"="g", "Д"="D", "д"="d",

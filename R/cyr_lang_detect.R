@@ -1,3 +1,13 @@
+#' Determine the language of a Cyrillic text
+#'
+#' @param text A string of Cyrillic characters, between " ", may contain spaces.
+#'
+#' @returns A message with the language of the input text.
+#' @export
+#'
+#' @examples
+#' cyr_lang_detect("Лише раз на сто років Небо народжує двох людей з однією душею
+#' І відпускає їх у чистий, вільний політ Нам пощастило Я люблю тебе")
 cyr_lang_detect <- function(text) {
   if(stringr::str_detect(text, ".*[ЇїЄєҐґ].*") && !(stringr::str_detect(text, "[ЁёЪъЫыЭэЎўЅѕЃѓЌќЏџЉљЊњЈјЋћЂђӨөҮү]"))) {
     return("This text is Ukrainian.")

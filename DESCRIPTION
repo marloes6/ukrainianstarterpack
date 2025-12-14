@@ -2,7 +2,7 @@ Package: ukrainianstarterpack
 Title: Detects and Transliterates the Ukrainian Language
 Version: 0.0.0.9000
 Authors@R: 
-    person("Marloes", "de Rijk", , "", role = c("aut", "cre"))
+    person("Marloes", "de Rijk", , "marloes.derijk@student.hu.nl", role = c("aut", "cre"))
 Description: Determine if a text is Ukrainian or another Cyrillic language, and transliterate from and to Ukrainian.
 License: MIT + file LICENSE
 Encoding: UTF-8
